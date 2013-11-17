@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary", "MyLibrary\MyLibrary.csproj", "{AEE21843-6127-4CF7-AF78-769BFE27E2BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary.Tests", "MyLibrary.Tests\MyLibrary.Tests.csproj", "{AE0E34D3-E153-4FA2-BFE4-EF40F84CD60D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://jcgillespie.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MyLibrary\\MyLibrary.csproj
+		SccProjectName1 = MyLibrary
+		SccLocalPath1 = MyLibrary
+		SccProjectUniqueName2 = MyLibrary.Tests\\MyLibrary.Tests.csproj
+		SccProjectName2 = MyLibrary.Tests
+		SccLocalPath2 = MyLibrary.Tests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEE21843-6127-4CF7-AF78-769BFE27E2BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE21843-6127-4CF7-AF78-769BFE27E2BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE21843-6127-4CF7-AF78-769BFE27E2BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE21843-6127-4CF7-AF78-769BFE27E2BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0E34D3-E153-4FA2-BFE4-EF40F84CD60D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0E34D3-E153-4FA2-BFE4-EF40F84CD60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0E34D3-E153-4FA2-BFE4-EF40F84CD60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0E34D3-E153-4FA2-BFE4-EF40F84CD60D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
