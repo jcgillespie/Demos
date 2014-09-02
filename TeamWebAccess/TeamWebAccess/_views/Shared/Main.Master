@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" Inherits="Microsoft.TeamFoundation.Server.WebAccess.TfsViewMasterPage<dynamic>" %>
+<%@ Import Namespace="Microsoft.TeamFoundation.Server.WebAccess" %>
+<%@ Import Namespace="Microsoft.TeamFoundation.Server.WebAccess.Html" %>
+<%@ Import Namespace="Microsoft.TeamFoundation.Framework.Server" %>
+<%@ Import Namespace="System.Web.Optimization" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<asp:ContentPlaceHolder ID="DocumentBegin" runat="server" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server">
+            <%: Html.HtmlPageTitle() %>
+        </asp:ContentPlaceHolder>
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8" />
+    <link rel="SHORTCUT ICON" href="<%:Url.Content("~/favicon.ico") %>"/>
+
+    <%:Html.RenderThemedBundle("jquery-modified") %>
+    <%:Html.RenderThemedBundle("sitecss") %>
+    <%:Html.RenderThemedBundle("widgetcss") %>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body class="<%:TfsWebContext.NavigationContext.Area %> <%: Html.BodyClasses() %>">
+    <%:Html.GlobConfig() %>
+    <%:Html.TfsWebContext(TfsWebContext) %>
+    <%:Html.FeatureAvailabilityData() %>
+    <%:Html.FeatureLicenseInfo() %>
+    <%:Html.TfsAntiForgeryToken() %>
+    <%:Html.Bootstrap() %>
+    <%:Html.BuiltinPlugins() %>
+    <%:Html.ThirdPartyScripts(false, true) %>
+    <asp:ContentPlaceHolder ID="AdditionalThirdPartyScripts" runat="server" />
+    <%:Html.LoaderScripts() %>
+
+    <asp:ContentPlaceHolder ID="PageBegin" runat="server" />
+    <%: Html.ScriptModules("Presentation/Scripts/TFS/TFS.Host", "Presentation/Scripts/TFS/TFS.Host.UI") %>
+    <div class="main-container">        
+        <% string mainClass = (bool) ViewData["IsReponsiveLayout"] ? "main main-responsive" : "main"; %>
+        <div class="<%=mainClass %>">
+             
+            <noscript>
+                <div id="no-script-message">
+                     <div class="header">
+                        <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ4AAAAUCAYAAAB8roTFAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2NEFENDlBRDU3QzFFMTExQUE3OUQ4MDdDOTI5NTg1MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBM0YzREQ4REM0NUQxMUUxQUNFNkM2MTJEMEVGNDE4NSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBM0YzREQ4Q0M0NUQxMUUxQUNFNkM2MTJEMEVGNDE4NSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2NEFENDlBRDU3QzFFMTExQUE3OUQ4MDdDOTI5NTg1MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2NEFENDlBRDU3QzFFMTExQUE3OUQ4MDdDOTI5NTg1MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Ppa4XfAAAAOVSURBVHja7Foxi9RAFM7qIVhJbAXh4v2DPa6y0pS2a6GcZQ5BQWx2wdYiV4oiZCsRvGKvsNHGbCEo2GQbweLArI0gWOQEQfFA4hv8Bp/PSTbZzcY7mA8+dmeSefPy8jLfy+x28jx3LCzaxjEbAoujknhrxBvEUzZ8Fm0lnkq6l8T7xE/Ex8QNG0aLuliZI+nOoH2SuEk8TbxkQ2kx74q3SrzLEqss6eogJuYGBi1do5w/bmleH/PVgYcxXoN+9IkZ7CbEbkN2F/NVvdWCb/Pf+Ey8wPrXiB/zP/hK/MHaz9i5ZfRwvlfx/KYYE/stz6no43qr+Bcs2QeftcP/EIt/KGu8D5DOF8Q7hpVuj7hO/G7FojF4S7Y9JY7RVp+Dw/hy8YZ4Fd+V7L5jSfcUSbfX0NxqyU+xXGdMegMhjb6QjITJhksczSmhAZOgHPa5hPhcGNDW8hkVlAwjgz1uUx5LcSzCdynPIRuTMZ9m+aExZOWGWzH+ffSP2ByRiFti8FXG08ecCesLi6T2Cb7fzv9GJJbKLwtKrUvMmMT00HbFGCWRCfuuZUOPV+yCOeyYpIyjzyQoMEiSJ+TJYW1fxCOED9q/lJUScYHUahv6WlODH9xel7V1jMr8MMU9xnFdcpTFvy9i6Yt7E4sYOiz+gSH2EfMj03E1Jd6qqOkUvhE3G0w8PzdDH4tYXypuhLY3Eg9EWlArmWq8EOMdYS+smHieCLhnmIffGA++ZuJayxIvMfidISHK/Cir9/RcZfGXceY+euyhkQ9JbJjThMBU450lvoK8vibeJP7E1onas3tIPNGQ1O4TO4JTLPEu2lszxi8D0q47pw+ukMwuSpVzLfhsgqrvtpnMF8XfKZDsHjgsiFGRD+tijqGpxjuPpLtHvEh8QLyG5FO4jsRcNPkmrJ6QF6C4i3ZvSck1hu2A1Uw99O+DPqvbql5TgJrNN9R4Y9zY3owk1diFva6I1bhmHRuJLZ5pSfyLsIuxAbs3ZfHk/eGslwuVbO/xcnGLeID+HZF8G1gBF31CB7hwXnjq/nCOPbC6iTdgxXmMtr6p3LdpRZvb8D+FvQk7NmDFuG8YF2Kc7J+w4lzd1Ms1V/oJkjpne25bJfEvgnwznhVPPddAzJ/oAZ0a/065Ark9Lvqf218uLBbdTimDXPkcvD7HNowWdbFS8/wdfKrfaB9hb+/AhtGiLjr2j6AWh11qLSxs4lkcbfwSYACmjPBplVyzMwAAAABJRU5ErkJggg==" />
+                    </div>
+
+                    <div class="content">
+                        <ul class="section-container">
+                            <li class="error-details">
+                                <h1><%:PlatformResources.NoScriptHeader %></h1>
+                                <p> <%:PlatformResources.NoScriptMessage %> <a href="http://support.microsoft.com/gp/howtoscript">http://support.microsoft.com/gp/howtoscript</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </noscript>
+
+            <% if (!Html.Chromeless()) { %>
+                <!-- Specifying route area let that area to render its own header if exists. If area does not have
+                    its own header implementation, the default header is used -->
+                <% Html.RenderPartial(areaName: TfsWebContext.NavigationContext.Area, viewName: "Header", viewModel: null); %>            
+            <% } %>
+                        
+            <div class="content-section">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            
+            <div class="error-section" tabindex="0"></div>
+        </div>
+    </div>
+    <asp:ContentPlaceHolder ID="PageEnd" runat="server" />
+    <%: Html.ScriptModules() %>
+    <script type="text/javascript">
+        Sys.Application.set_enableHistory(true);
+        Sys.Application.initialize();
+    </script>   
+</body>
+</html>
