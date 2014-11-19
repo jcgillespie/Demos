@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Input";
+}
+
+<h2>Input</h2>
+@using (Html.BeginForm("Get", "Recommendation", FormMethod.Get))
+{
+    <div class="row">
+        <label>User ID</label>
+        @Html.DropDownList("id", new SelectList(Data.Users))
+    </div>
+    <div class="row">
+        <input type="submit" value="Get Recommendations" class="btn btn-primary btn-lg" />
+    </div>
+}

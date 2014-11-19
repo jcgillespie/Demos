@@ -1,0 +1,40 @@
+﻿@model List<List<string>>
+
+@{
+    ViewBag.Title = "Get";
+}
+
+<h2>Recommendations (@Model.Count)</h2>
+
+<div>
+    <hr />
+    @for( int i = 0; i < Model.Count; i++ )
+    {
+        var rec = Model[ i ];
+        <div>
+            <h4>Recommendation # @(i + 1)</h4>
+            <ul>
+                <li>User: @rec[0]</li>
+                <li>Place ID: @rec[ 1 ]</li>
+                <li>Lat: @rec[ 2 ]</li>
+                <li>Long: @rec[ 3 ]</li>
+                <li>Name: @rec[ 4 ]</li>
+                <li>Address: @rec[ 5 ]</li>
+                <li>City: @rec[ 6 ]</li>
+                <li>State: @rec[ 7 ]</li>
+                <li>Country: @rec[ 8 ]</li>
+                <li>Zip: @rec[ 9 ]</li>
+                <li>Alcohol: @rec[ 10 ]</li>
+                <li>Smoking: @rec[ 11 ]</li>
+                <li>Dress Code: @rec[ 12 ]</li>
+                <li>Accessibility: @rec[ 13 ]</li>
+                <li>Price: @rec[ 14 ]</li>
+                <li>Url: @rec[ 15 ]</li>
+                <li>Ambience: @rec[ 16 ]</li>
+                <li>Franchise: @rec[ 17 ]</li>
+                <li>Area: @rec[ 18 ]</li>
+                <li>Othe Services: @rec[ 19 ]</li>
+            </ul>
+        </div>
+    }
+</div>

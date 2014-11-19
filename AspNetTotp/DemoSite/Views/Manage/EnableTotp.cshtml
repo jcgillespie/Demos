@@ -1,0 +1,20 @@
+﻿@using DemoSite
+@model DemoSite.Models.EnableTotpViewModel
+
+@{
+    ViewBag.Title = "EnableTotp";
+}
+
+<h2>Enable Totp</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(false)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m=>m.Key)
+    @Html.HiddenFor(m=>m.TotpUrl)
+    @Html.TextBoxFor(m=>m.Code)
+    <input type="submit" value="Submit" />
+}
+<div>
+    @Html.GenerateQrCode(Model.TotpUrl, "TOTP QR Code")
+</div>

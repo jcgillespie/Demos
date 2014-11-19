@@ -1,0 +1,8 @@
+1. File -> new project
+2. update Nuget packages
+3. build/run
+4. Show DbSchema
+5. Change the ApplicationUser to derive from IdentityUser<int, IdentityUserLogin<int>, IdentityUserRole<int>, IdentityUserClaim<int>>
+6. Change signature of GenerateUserIdentityAsync to accept UserManager<ApplicationUser, int>
+7. Change DbContext to derive from IdentityDbContext<ApplicationUser, IdentityRole<int, IdentityUserRole<int>>, int, IdentityUserLogin<int>, IdentityUserRole<int>, IdentityUserClaim<int>>
+8. remove v1schema param from dbcontext ctor

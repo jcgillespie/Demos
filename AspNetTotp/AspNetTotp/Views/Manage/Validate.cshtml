@@ -1,0 +1,34 @@
+﻿@model AspNetTotp.Models.ValidateTotpViewModel
+
+@{
+    ViewBag.Title = "Validate";
+}
+
+<h2>Validate</h2>
+
+@if (!Model.IsTotpEnabled)
+{
+    <p>TOTP not enabled.</p>
+}
+else
+{
+    using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(false)
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.IsTotpEnabled)
+        @Html.LabelFor(m => m.Code)
+        @Html.TextBoxFor(m => m.Code)
+        <input type="submit" value="Submit" />
+    }
+
+    if (Model.CodeIsValid)
+    {
+        <p>Code is Valid</p>
+        <p>Time Step Matched: @Model.TimeStepMatched</p>
+    }
+    else
+    {
+        <p>Code is invalid.</p>
+    }
+}

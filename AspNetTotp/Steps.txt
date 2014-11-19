@@ -1,0 +1,15 @@
+1. File->New Project
+2. Update Nuget packages
+3. Compile/Launch
+4. Register/Login
+5. Create ITotpUser interface
+6. Implement ITotpUser on ApplicationUser
+7. Install-Package OtpSharp
+8. Create TotpTimeBasedUserTokenProvider
+9. Register provider in IdentityConfig.cs
+10. Add DisableTotp() to ManageController
+11. EnableTotp() GET method
+12. Install-Package ZXing.Net
+13. Code HtmlHelperExtension for QR Code
+14. EnableTotp() POST method
+15. Validate() GET/POST Methods
